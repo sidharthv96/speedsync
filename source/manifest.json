@@ -1,6 +1,6 @@
 {
-	"name": "SpeedSync | Persist Video Speeds per site/channel",
-	"version": "0.0.2",
+	"name": "SpeedSync | Persist Video Speeds",
+	"version": "0.0.3",
 	"description": "Persist Playback speeds for HTML5 videos. Per channel support in Youtube.",
 	"homepage_url": "https://github.com/sidharthv96/speedsync/",
 	"manifest_version": 2,
