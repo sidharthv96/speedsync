@@ -3,7 +3,7 @@ import optionsStorage from './options-storage';
 async function updateSpeed(request) {
 	console.log(request);
 	const opts = await optionsStorage.getAll();
-	opts[request.player.id] = {
+	opts.custom[request.player.id] = {
 		name: request.player.name,
 		site: request.player.site,
 		speed: request.speed
@@ -16,8 +16,8 @@ async function getSpeed(request) {
 	console.log(request);
 	const opts = await optionsStorage.getAll();
 	console.log(opts);
-	if (opts[request.player.id]) {
-		return opts[request.player.id].speed || 1;
+	if (opts.custom[request.player.id]) {
+		return opts.custom[request.player.id].speed || 1;
 	}
 
 	// TODO: This should return a default speed we can set
