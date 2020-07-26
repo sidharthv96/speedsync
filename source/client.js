@@ -1,7 +1,6 @@
 import { getChannelInfo } from "./youtube";
 
 let video;
-let playerID;
 let lastSetRate;
 
 function onLoadHandler() {
@@ -29,15 +28,18 @@ function messageReceiver(request, sender, sendResponse) {
 }
 
 function getPlayer() {
-	if (window.location.host === "www.youtube.com") {
+	const host = window.location.host;
+	if (host === "www.youtube.com") {
 		const channel = getChannelInfo();
 		if (channel) {
+			channel.site = host;
 			return channel;
 		}
 	}
 	return {
-		id: window.location.host,
-		name: window.location.host
+		id: host,
+		site: host,
+		name: host
 	};
 }
 
@@ -52,23 +54,11 @@ async function checkForRate() {
 	}
 }
 
-// function isNewPlayer() {
-// 	return getPlayer().id !== playerID;
-// }
-
-// function updatePlayerID() {
-// 	playerID = getPlayer().id;
-// }
-
 function isRateChangedByUser() {
 	return video.playbackRate !== lastSetRate;
 }
 
 async function rateChangeHandler(event) {
-	// console.log("The playback rate changed.");
-	// console.log("Newplayer : " + isNewPlayer());
-	// console.log("isRateChangedByUser : " + isRateChangedByUser());
-	// updatePlayerID();
 	if (isRateChangedByUser()) {
 		console.log("Persisting to Options!");
 		browser.runtime
@@ -85,10 +75,6 @@ async function rateChangeHandler(event) {
 function init() {
 	console.log("INIT");
 	lastSetRate = video.playbackRate;
-	// updatePlayerID();
-	// video.addEventListener("playing", event => {
-	// 	updatePlayerID();
-	// });
 	video.addEventListener("ratechange", rateChangeHandler);
 }
 
