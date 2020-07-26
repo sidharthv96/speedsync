@@ -19,6 +19,11 @@
 		"chrome_style": true,
 		"page": "options.html"
 	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "SpeedSync",
+		"default_popup": "options.html"
+	},
 	"background": {
 		"persistent": false,
 		"scripts": ["browser-polyfill.min.js", "background.js"]
