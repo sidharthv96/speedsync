@@ -2,3 +2,4 @@ node_modules
 yarn.lock
 distribution
 .env
+web-ext-artifacts

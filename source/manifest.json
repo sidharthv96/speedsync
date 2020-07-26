@@ -1,16 +1,16 @@
 {
-	"name": "Awesome Extension",
-	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/sidharthv96/memspeed/",
+	"name": "SpeedSync | Persist Video Speeds per site/channel",
+	"version": "0.0.2",
+	"description": "Persist Playback speeds for HTML5 videos. Per channel support in Youtube.",
+	"homepage_url": "https://github.com/sidharthv96/speedsync/",
 	"manifest_version": 2,
-	"minimum_chrome_version": "74",
+	"minimum_chrome_version": "69",
 	"icons": {
 		"128": "icon.png"
 	},
 	"applications": {
 		"gecko": {
-			"id": "demo-runtime.connect-and-storage.local@example.com"
+			"id": "speedsync-video-speed-memory@sidharth.dev"
 		}
 	},
 	"permissions": ["<all_urls>", "tabs", "storage", "contextMenus", "activeTab"],
