@@ -8,12 +8,12 @@
 	"icons": {
 		"128": "icon.png"
 	},
-	"permissions": [
-		"https://youtube.com/*/*",
-		"storage",
-		"contextMenus",
-		"activeTab"
-	],
+	"applications": {
+		"gecko": {
+			"id": "demo-runtime.connect-and-storage.local@example.com"
+		}
+	},
+	"permissions": ["<all_urls>", "tabs", "storage", "contextMenus", "activeTab"],
 	"optional_permissions": ["http://*/*", "https://*/*"],
 	"options_ui": {
 		"chrome_style": true,
