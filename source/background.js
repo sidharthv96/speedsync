@@ -1,4 +1,4 @@
-import optionsStorage from "./options-storage";
+import optionsStorage from './options-storage';
 
 async function updateSpeed(request) {
 	console.log(request);
@@ -19,6 +19,7 @@ async function getSpeed(request) {
 	if (opts[request.player.id]) {
 		return opts[request.player.id].speed || 1;
 	}
+
 	// TODO: This should return a default speed we can set
 	return 1;
 }
@@ -35,8 +36,8 @@ function messageReceiver(request, sender, sendResponse) {
 }
 
 browser.runtime.onMessage.addListener(messageReceiver);
-browser.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+browser.tabs.onUpdated.addListener(tabId => {
 	browser.tabs.sendMessage(tabId, {
-		action: "checkForRate"
+		action: 'checkForRate'
 	});
 });
